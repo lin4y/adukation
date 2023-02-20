@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demande rapide</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Roboto', sans-serif;
+			background-color: #3a3a3a;
+			color: white;
+		}
+		
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+		
+		h1 {
+			font-size: 4em;
+			margin: 0;
+			color: #f3c623;
+		}
+		
+		h2 {
+			font-size: 2em;
+			margin-top: 0;
+			margin-bottom: 1em;
+			color: #f3c623;
+		}
+		
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		label {
+			font-size: 1.2em;
+			margin-top: 1em;
+		}
+		
+		select, input[type="text"] {
+			font-size: 1.2em;
+			padding: 0.5em;
+			border: none;
+			border-radius: 30px;
+			margin-top: 0.5em;
+		}
+		
+		button {
+			background-color: #7a7a7a;
+			color: white;
+			font-size: 1.2em;
+			padding: 1em 2em;
+			border: none;
+			border-radius: 30px;
+			cursor: pointer;
+			transition: background-color 0.5s;
+			margin-top: 1em;
+		}
+		
+		button:hover {
+			background-color: #d1d1d1;
+			color: #3a3a3a;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Adukation</h1>
+		<h2>Faire une demande rapide</h2>
+		<form>
+			<label for="classe">Choisir votre classe:</label>
+			<select id="classe" name="classe">
+				<option value="CP">CP</option>
+				<option value="CE1">CE1</option>
+				<option value="CE2">CE2</option>
+				<option value="CM1">CM1</option>
+				<option value="CM2">CM2</option>
+				<option value="6ème">6ème</option>
+				<option value="5ème">5ème</option>
+				<option value="4ème">4ème</option>
+				<option value="3ème">3ème</option>
+				<option value="Seconde">Seconde</option>
+				<option value="Première">Première</option>
+				<option value="Terminale">Terminale</option>
+			</select>
+			
+			<label for="matiere">Choisir votre matière:</label>
+			<select id="matiere" name="matiere">
+				<option value="Mathématiques">Mathématiques</option>
+				<option value="Français">Français</option>
+				<option value="Histoire-Géographie">Histoire-Géographie</option>
+				<option value="SVT">SVT</option>
+				<option value="Espagnol">Espagnol</option>
+				<option value="Anglais">Anglais</option>
+				<option value="Physique Chimie">Physique-Chimie</option>
+				<option value="Latin">Latin</option>
+				<option value="Autres">Autres</option>
+				
+			</select>
+			
+			<label for="chapitre">Entrez le chapitre que vous voulez étudier:</label>
+			<input type="text" id="chapitre" name="chapitre">
+
+			<label for="raison">Choisissez une option:</label>
+			<select id="raison" name="raison">
+				<option value="Je n'ai pas compris le cours">Je n'ai pas compris le cours</option>
+				<option value="Je me prépare pour un contrôle">Je me prépare pour un contrôle</option>
+				<option value="Je veux faire un bilan pour mieux comprendre">Je veux faire un bilan pour mieux comprendre</option>
+				<option value="Personalisé">Personalisé</option>
+			</select>
+			
+			<div id="comment-section" style="display:none;">
+				<label for="comment">Entrez votre demande personnalisée:</label>
+				<input type="text" id="comment" name="comment">
+			</div>
+			
+			<button type="submit">Envoyer</button>
+		</form>
+	</div>
+	
+	<script>
+		const raisonSelect = document.getElementById("raison");
+		const commentSection = document.getElementById("comment-section");
+
+		raisonSelect.addEventListener("change", (event) => {
+			if (event.target.value === "Personalisé") {
+				commentSection.style.display = "block";
+			} else {
+				commentSection.style.display = "none";
+			}
+		});
+	</script>
+</body>
+</html>
